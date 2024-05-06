@@ -4,7 +4,7 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/books"
-mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongoUrl)
 mongoose.Promise = Promise
 
 const Author = mongoose.model('Author', {
@@ -58,7 +58,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Hello World!')
 })
 
 app.get('/authors', async (req, res) => {
