@@ -3,9 +3,10 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/books"
+const mongoUrl = process.env.MONGO_URL || "mongodb://127.0.0.1/books"
 mongoose.connect(mongoUrl)
 mongoose.Promise = Promise
+
 
 const Author = mongoose.model('Author', {
   name: String
@@ -49,7 +50,7 @@ if (process.env.RESET_DATABASE) {
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8070
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
